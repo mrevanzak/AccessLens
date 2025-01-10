@@ -10,6 +10,6 @@ const config = {
   jsxSingleQuote: true,
   tabWidth: 2,
   semi: true,
-}
+};
 
-export default config
+export default config;
