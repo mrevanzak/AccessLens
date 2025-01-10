@@ -1,7 +1,7 @@
-import { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,7 +11,7 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
 });
 
-export default [
+const eslintConfig = [
   // translate an entire config
   ...compat.config({
     env: {
@@ -26,6 +26,7 @@ export default [
       'next/core-web-vitals',
       'plugin:@typescript-eslint/recommended',
       'prettier',
+      'plugin:jsx-a11y/recommended',
     ],
     rules: {
       'no-unused-vars': 'off',
@@ -98,3 +99,5 @@ export default [
     },
   }),
 ];
+
+export default eslintConfig;
