@@ -27,6 +27,7 @@ const eslintConfig = [
       'plugin:@typescript-eslint/recommended',
       'prettier',
       'plugin:jsx-a11y/recommended',
+      'plugin:storybook/recommended',
     ],
     rules: {
       'no-unused-vars': 'off',
