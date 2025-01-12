@@ -94,7 +94,7 @@ export const Controlled: Story = {
       <Input
         {...args}
         value={value}
-        setValue={(value) => setValue(value)}
+        onChange={(e) => setValue(e.target.value)}
         description={`Value: ${value}`}
       />
     );
