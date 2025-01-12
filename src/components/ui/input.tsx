@@ -76,7 +76,13 @@ function Input<T>(
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           value={value}
-          onChange={(e) => setValue?.(e.target.value as T)}
+          onChange={(e) =>
+            setValue?.(
+              (Number.isNaN(+e.target.value)
+                ? e.target.value
+                : +e.target.value) as T,
+            )
+          }
           {...props}
         />
         {endContent}
