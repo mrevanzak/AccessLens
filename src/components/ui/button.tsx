@@ -1,6 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
+import { cn } from '@/lib/utils';
+
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
@@ -30,32 +32,21 @@ const buttonVariants = cva(
   },
 );
 
-export type ButtonProps<C extends React.ElementType = 'button'> = {
-  as?: C;
-} & VariantProps<typeof buttonVariants> &
-  React.ComponentPropsWithRef<C>;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
 
-function Button<C extends React.ElementType = 'button'>({
-  as,
-  className,
-  variant,
-  size,
-  ...props
-}: ButtonProps<C>) {
-  const Component = as || 'button';
-
-  return (
-    <Component
-      className={buttonVariants({ variant, size, className })}
-      {...props}
-    />
-  );
-}
-
-const ButtonWrapper = React.forwardRef(Button) as <C extends React.ElementType>(
-  props: ButtonProps<C> & { ref?: React.ForwardedRef<React.ElementType> },
-) => ReturnType<typeof Button>;
-
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, ...props }, ref) => {
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
 Button.displayName = 'Button';
 
-export { ButtonWrapper as Button, buttonVariants };
+export { Button, buttonVariants };
