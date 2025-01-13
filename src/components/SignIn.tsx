@@ -55,14 +55,12 @@ export function SignInForm({
               placeholder='Enter your email'
             />
           </div>
-          {error && (
-            <div
-              aria-live='polite'
-              className='text-sm font-medium text-destructive'
-            >
-              {error}
-            </div>
-          )}
+          <div
+            aria-live='polite'
+            className='text-sm font-medium text-destructive'
+          >
+            {error}
+          </div>
           <Button type='submit' className='w-full'>
             Login
           </Button>
