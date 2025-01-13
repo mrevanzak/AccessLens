@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Link from 'next/link';
 
-import { BreadcrumbItem, Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 /**
  * Displays the path to the current resource using a hierarchy of links.
@@ -11,14 +10,23 @@ const meta = {
   component: Breadcrumbs,
   tags: ['autodocs'],
   argTypes: {},
-  args: {},
-  render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbItem>Home</BreadcrumbItem>
-      <BreadcrumbItem>Components</BreadcrumbItem>
-      <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-    </Breadcrumbs>
-  ),
+  args: {
+    data: [
+      {
+        label: 'Home',
+        href: '/',
+      },
+      {
+        label: 'Components',
+        href: '/components',
+      },
+      {
+        label: 'Breadcrumb',
+        href: '/components/breadcrumb',
+      },
+    ],
+  },
+  render: (args) => <Breadcrumbs {...args} />,
   parameters: {
     layout: 'centered',
   },
@@ -43,34 +51,26 @@ export const CustomSeparator: Story = {
 };
 
 /**
- * You can customize the behavior of the breadcrumb item by using the `as` prop.
- * This prop allows you to use a different navigation element for the breadcrumb item.
- */
-export const CustomBreadcrumbItem: Story = {
-  render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbItem as={Link} href='/'>
-        Home
-      </BreadcrumbItem>
-      <BreadcrumbItem as={Link} href='/components'>
-        Components
-      </BreadcrumbItem>
-      <BreadcrumbItem as={Link} href='/components/breadcrumb'>
-        Breadcrumb
-      </BreadcrumbItem>
-    </Breadcrumbs>
-  ),
-};
-
-/**
- * You can add any element to the start or end of the breadcrumbs by using the `startContent` and `endContent` props.
+ * You can add icons to the breadcrumbs by using the icon prop.
  */
 export const WithContent: Story = {
-  render: (args) => (
-    <Breadcrumbs {...args}>
-      <BreadcrumbItem startContent='🏠'>Home</BreadcrumbItem>
-      <BreadcrumbItem startContent='🔧'>Components</BreadcrumbItem>
-      <BreadcrumbItem startContent='📜'>Breadcrumb</BreadcrumbItem>
-    </Breadcrumbs>
-  ),
+  args: {
+    data: [
+      {
+        icon: '🏠',
+        label: 'Home',
+        href: '/',
+      },
+      {
+        icon: '🔧',
+        label: 'Components',
+        href: '/components',
+      },
+      {
+        icon: '📜',
+        label: 'Breadcrumb',
+        href: '/components/breadcrumb',
+      },
+    ],
+  },
 };
