@@ -87,17 +87,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {description}
           </p>
         )}
-        {error && (
-          <p
-            id={`${id}-error`}
-            className={cn(
-              'text-sm font-medium text-destructive',
-              classNames?.errorMessage,
-            )}
-          >
-            {error}
-          </p>
-        )}
+        <p
+          id={`${id}-error`}
+          aria-live='polite'
+          className={cn(
+            'text-sm font-medium text-destructive',
+            classNames?.errorMessage,
+          )}
+        >
+          {error}
+        </p>
       </div>
     );
   },
