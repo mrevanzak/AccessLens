@@ -52,7 +52,7 @@ const FormInput = <
   name,
   placeholder,
   ...props
-}: UseControllerProps<TFieldValues, TName> & Omit<InputProps, 'id'>) => {
+}: UseControllerProps<TFieldValues, TName> & Partial<InputProps>) => {
   const { field, fieldState } = useController({
     name,
     control,

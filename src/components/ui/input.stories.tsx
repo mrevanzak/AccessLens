@@ -14,6 +14,7 @@ const meta = {
   args: {
     id: 'email',
     className: 'w-96',
+    label: 'Email',
     type: 'email',
     placeholder: 'Email',
     disabled: false,
@@ -38,14 +39,6 @@ export const Default: Story = {};
  */
 export const Disabled: Story = {
   args: { disabled: true, defaultValue: 'hello@accesstime.co' },
-};
-
-/**
- * Use the `label` prop to includes a clear, descriptive label above
- * the input area to guide users.
- */
-export const WithLabel: Story = {
-  args: { label: 'Email' },
 };
 
 /**
