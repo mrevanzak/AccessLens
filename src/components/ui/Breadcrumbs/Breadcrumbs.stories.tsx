@@ -1,28 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 
-import { Breadcrumb, BreadcrumbItem } from '@/components/ui/Breadcrumb';
+import { BreadcrumbItem, Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 /**
  * Displays the path to the current resource using a hierarchy of links.
  */
 const meta = {
-  title: 'ui/Breadcrumb',
-  component: Breadcrumb,
+  title: 'ui/Breadcrumbs',
+  component: Breadcrumbs,
   tags: ['autodocs'],
   argTypes: {},
   args: {},
   render: (args) => (
-    <Breadcrumb {...args}>
+    <Breadcrumbs {...args}>
       <BreadcrumbItem>Home</BreadcrumbItem>
       <BreadcrumbItem>Components</BreadcrumbItem>
       <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-    </Breadcrumb>
+    </Breadcrumbs>
   ),
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof Breadcrumb>;
+} satisfies Meta<typeof Breadcrumbs>;
 
 export default meta;
 
@@ -48,7 +48,7 @@ export const CustomSeparator: Story = {
  */
 export const CustomBreadcrumbItem: Story = {
   render: (args) => (
-    <Breadcrumb {...args}>
+    <Breadcrumbs {...args}>
       <BreadcrumbItem as={Link} href='/'>
         Home
       </BreadcrumbItem>
@@ -58,7 +58,7 @@ export const CustomBreadcrumbItem: Story = {
       <BreadcrumbItem as={Link} href='/components/breadcrumb'>
         Breadcrumb
       </BreadcrumbItem>
-    </Breadcrumb>
+    </Breadcrumbs>
   ),
 };
 
@@ -67,10 +67,10 @@ export const CustomBreadcrumbItem: Story = {
  */
 export const WithContent: Story = {
   render: (args) => (
-    <Breadcrumb {...args}>
+    <Breadcrumbs {...args}>
       <BreadcrumbItem startContent='🏠'>Home</BreadcrumbItem>
       <BreadcrumbItem startContent='🔧'>Components</BreadcrumbItem>
       <BreadcrumbItem startContent='📜'>Breadcrumb</BreadcrumbItem>
-    </Breadcrumb>
+    </Breadcrumbs>
   ),
 };

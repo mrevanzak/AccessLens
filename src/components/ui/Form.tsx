@@ -12,7 +12,7 @@ import {
 } from 'react-hook-form';
 import type { ZodType, ZodTypeDef } from 'zod';
 
-import { Input, type InputProps } from '@/components/ui/Input';
+import { Input, type InputProps } from '@/components/ui/Input/Input';
 
 type FormProps<TIn extends FieldValues> =
   React.ComponentPropsWithoutRef<'form'> & {

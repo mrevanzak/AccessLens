@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { Label } from '@/components/ui/Label';
+import { Label } from '@/components/ui/Input';
 
 export type InputProps = {
   /** The id of the input field. */
@@ -26,7 +26,7 @@ export type InputProps = {
   };
 } & React.ComponentProps<'input'>;
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,
@@ -99,5 +99,3 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   },
 );
-
-export { Input };

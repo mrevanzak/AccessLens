@@ -3,12 +3,14 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-type BreadcrumbProps = React.ComponentPropsWithoutRef<'nav'> & {
+import { BreadCrumbItemProps } from '@/components/ui/Breadcrumbs';
+
+export type BreadcrumbProps = React.ComponentPropsWithoutRef<'nav'> & {
   separator?: React.ReactNode;
   disabled?: boolean;
 };
 
-const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
+export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbProps>(
   ({ separator, disabled, ...props }, ref) => {
     const childrenCount = React.Children.count(props.children);
 
@@ -52,44 +54,4 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
   },
 );
 
-Breadcrumb.displayName = 'Breadcrumb';
-
-type BreadCrumbItemProps<C extends React.ElementType = 'a'> = {
-  isLast?: boolean;
-  disabled?: boolean;
-  startContent?: React.ReactNode;
-  endContent?: React.ReactNode;
-  as?: C;
-} & Omit<React.ComponentPropsWithoutRef<C>, 'as'>;
-const BreadcrumbItem = <C extends React.ElementType = 'a'>({
-  disabled,
-  isLast,
-  as,
-  startContent,
-  endContent,
-  ...props
-}: BreadCrumbItemProps<C>) => {
-  const Component = isLast ? 'span' : (as ?? 'a');
-
-  return (
-    <li className={cn('inline-flex items-center gap-1.5')}>
-      {startContent}
-      <Component
-        className={cn('transition-colors hover:text-foreground', {
-          'font-normal text-foreground': isLast,
-        })}
-        disabled={isLast ? true : disabled}
-        aria-disabled={isLast ? true : disabled}
-        {...(isLast && {
-          'aria-current': false,
-          role: 'link',
-        })}
-        {...props}
-      />
-      {endContent}
-    </li>
-  );
-};
-BreadcrumbItem.displayName = 'BreadcrumbItem';
-
-export { Breadcrumb, BreadcrumbItem };
+Breadcrumbs.displayName = 'Breadcrumbs';
