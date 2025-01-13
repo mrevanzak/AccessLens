@@ -37,6 +37,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       classNames,
       id,
       className,
+      disabled,
       ...props
     },
     ref,
@@ -70,6 +71,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             aria-invalid={!!error}
             aria-describedby={error ? `${id}-error` : undefined}
+            disabled={disabled}
+            aria-disabled={disabled}
             {...props}
           />
           {endContent}
