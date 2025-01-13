@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/ui/Input';
 
 /**
  * Displays a form input field or a component that looks like an input field.

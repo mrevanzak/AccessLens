@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 
-import { Breadcrumb, BreadcrumbItem } from '@/components/ui/breadcrumb';
+import { Breadcrumb, BreadcrumbItem } from '@/components/ui/Breadcrumb';
 
 /**
  * Displays the path to the current resource using a hierarchy of links.

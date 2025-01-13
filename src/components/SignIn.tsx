@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 import { cn } from '@/lib/utils';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Form, FormInput, useForm } from '@/components/ui/Form';
 
 export function SignInForm({

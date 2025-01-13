@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SignInForm } from '@/components/sign-in';
+import { SignInForm } from '@/components/SignIn';
 
 /**
  * Displays a Sign in form.
